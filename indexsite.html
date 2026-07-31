@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBMOTORS | Concessionária Premium</title>
+    
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. RESET & CONFIGURAÇÕES GERAIS
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           2. CABEÇALHO & MENU (HEADER)
+           ========================================================================== */
+        .header {
+            background-color: #0b0c10;
+            color: #ffffff;
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap; /* Para telas menores */
+        }
+        
+        .header h2 {
+            border: none;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 25px; /* Espaçamento ajustado para caber mais links */
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover {
+            color: #e50914;
+        }
+
+        /* ==========================================================================
+           3. CORPO PRINCIPAL & BANNER
+           ========================================================================== */
+        main {
+            margin-top: 80px;
+        }
+
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 80px 20px;
+            margin: 0 0 40px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        /* ==========================================================================
+           4. VITRINE DE PRODUTOS (CARROS EM DESTAQUE)
+           ========================================================================== */
+        .products, .location-section, .table-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        h2.section-title {
+            grid-column: 1 / -1;
+            font-size: 2rem;
+            text-transform: uppercase;
+            border-left: 5px solid #e50914;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: #0b0c10;
+        }
+
+        .products-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .products-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .products-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .products-card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .products-card-content h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        /* ==========================================================================
+           5. TABELA FIPE (Estilo Integrado)
+           ========================================================================== */
+        .product-table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .product-table th {
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .product-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eeeeee;
+            color: #333;
+        }
+
+        .product-table tbody tr:hover {
+            background-color: #f4f6f9;
+        }
+
+        .product-table td:nth-child(2), .product-table th:nth-child(2) {
+            text-align: right;
+            font-weight: 700;
+            color: #e50914;
+        }
+
+        /* ==========================================================================
+           6. MAPA & FIM DA LINHA
+           ========================================================================== */
+        .map-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        .map-wrapper iframe {
+            width: 100%;
+            display: block;
+        }
+
+        .meu-conteiner {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .meu-botao {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #e50914;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .meu-botao:hover {
+            background-color: #b90710;
+            transform: scale(1.05);
+        }
+
+        /* ==========================================================================
+           7. SLIDER ANIMADO INFINITO
+           ========================================================================== */
+        .slider-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(100% * 8);
+            height: 100%;
+            animation: scroll 40s linear infinite;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85);
+        }
+
+        .slider-container:hover .slider-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-400vw); } 
+        }
+
+        /* ==========================================================================
+           8. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: #0b0c10;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            border-top: 3px solid #e50914;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header" id="HOME">
+        <h2>WEB<span style="color: #e50914;">MOTORS</span></h2>
+        
+        <nav class="nav-menu">
+            <ul>
+                
+                <li><a href="http://127.0.0.1:5500/cadastro.html">Cadastro</a></li>
+                <li><a href="http://127.0.0.1:5500/LOGIN.HTML">Login</a></li>
+               
+                <li><a href="https://www.webmotors.com.br/">Consultar preços</a></li>
+                <li><a href="https://www.webmotors.com.br/carros-usados/sp?lkid=1000&tipoveiculo=carros-usados&estadocidade=S%C3%A3o%20Paulo&page=1">Veículos</a></li>
+                <li><a href="https://www.webmotors.com.br/vender-carro?lkid=1006">Vender</a></li>
+                <li><a href="#estoque">Destaques</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SLIDER INFINITO -->
+        <div class="slider-container">
+            <div class="slider-track">
+                <!-- Imagens Originais -->
+                <div class="slide"><img src="carro1(2).png" alt="Carro 1"></div>
+                <div class="slide"><img src="carro2.jpg" alt="Carro 2"></div>
+                <div class="slide"><img src="carro3.jpg" alt="Carro 3"></div>
+               
+                <!-- Imagens Duplicadas para animação infinita -->
+                <div class="slide"><img src="carro1(2).png" alt="Carro 1"></div>
+                <div class="slide"><img src="carro2.jpg" alt="Carro 2"></div>
+                <div class="slide"><img src="carro3.jpg" alt="Carro 3"></div>
+                
+            </div>
+        </div>
+
+        <section class="banner">
+            <h1>Encontre o seu próximo carro</h1>
+            <p>Performance, luxo e segurança em um só lugar.</p>
+        </section>
+
+        <!-- VITRINE DE VEÍCULOS -->
+        <section id="estoque" class="products">
+            <h2 class="section-title">CARROS EM DESTAQUE</h2>
+            
+            <article class="products-card">
+                <a href="http://127.0.0.1:5500/index2.html">
+                    <img src="carro1(2).png" alt="MG Cyberster">
+                </a>
+                <div class="products-card-content">
+                    <h3>MG Cyberster</h3>
+                </div>
+            </article>
+
+            <article class="products-card">
+                <a href="http://127.0.0.1:5500/index3.html">
+                    <img src="carro2.jpg" alt="Chevrolet Chevette">
+                </a>
+                <div class="products-card-content">
+                    <h3>Chevrolet Chevette</h3>
+                </div>
+            </article>
+
+            <article class="products-card">
+                <a href="http://127.0.0.1:5500/index4.html">
+                    <img src="carro3.jpg" alt="FERRARI SF90">
+                </a>
+                <div class="products-card-content">
+                    <h3>FERRARI SF90</h3>
+                </div>
+            </article>
+        </section>
+
+        <!-- TABELA FIPE -->
+        <section class="table-section">
+            <h2 class="section-title">Tabela FIPE</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Carros</th>
+                        <th>Preço da Fipe</th>
+                        <th>Categoria</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MG Cyberster</td>
+                        <td>R$ 529.800,00</td>
+                        <td>Conversível</td>
+                    </tr>
+                    <tr>
+                        <td>Chevrolet Chevette</td>
+                        <td>R$ 17.000,00</td>
+                        <td>Sedan</td>
+                    </tr>
+                    <tr>
+                        <td>Ferrari SF90</td>
+                        <td>R$ 4.499.999,00</td>
+                        <td>Conversível</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        
+        <section id="localizacao" class="location-section">
+            <h2 class="section-title">Visite Nossas Concessionárias</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58790.07135683362!2d-43.25204171277279!3d-22.936248239318598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sconcession%C3%A1rias%20de%20ve%C3%ADculos!5e0!3m2!1spt-BR!2sbr!4v1784293839719!5m2!1spt-BR!2sbr" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </section>
+
+        <!-- FIM DA LINHA -->
+        <section class="meu-conteiner">
+            <h2>Fim da Linha!</h2>
+            <p>Você chegou ao fim do trajeto. Deseja recalcular a rota?</p>
+            <a href="index.html" class="meu-botao">Voltar para a Home</a>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>&copy; copyright - WEBMOTORS Semi Novos Motors 2010.</p>
+        <p>Excelência reconhecida em cada jornada</p>
+    </footer>
+
+    <scripts src="script.js"></scripts>
+
+</body>
+</html>

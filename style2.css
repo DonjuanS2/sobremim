@@ -1,0 +1,414 @@
+/* ==========================================================================
+   1. RESET & CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+--primary-color: #1e90ff; /* Cor principal do sistema */
+--secondary-color: #e3f2fd; /* Cor secundária (fundos leves) */
+--dark-color: #222; /* Cor escura para footer */
+--text-color: #333; /* Cor padrão de texto */
+--bg-color: #f4f4f4; /* Cor de fundo da página */
+
+--spacing: 15px; /* Espaçamento padrão */
+--radius: 8px; /* Borda arredondada padrão */
+}
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Transições suaves para efeitos de hover */
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; /* Fonte mais esportiva/moderna */
+    background-color: #f4f6f9; /* Fundo levemente acinzentado para destacar os cards brancos */
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO & MENU (HEADER)
+   ========================================================================== */
+.header {
+    background-color: #0b0c10; /* Preto profundo para um ar mais premium */
+    color: #ffffff;
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Alinha logo à esquerda e menu à direita */
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 60px; /* Espaçamento moderno entre os links */
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Efeito Hover refinado com linha vermelha embaixo */
+.nav-menu a:hover {
+    color: #e50914; /* Vermelho esportivo */
+}
+
+/* ==========================================================================
+   3. CORPO PRINCIPAL & BANNER
+   ========================================================================== */
+main {
+    margin-top: 80px; /* Ajustado para não cobrir o conteúdo devido ao header fixo */
+}
+
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    padding: 100px 20px;
+    margin: 0 0 40px 0; /* Ocupa a largura toda no topo */
+    border-radius: 0;
+    text-align: center;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    margin-bottom: 10px;
+}
+
+/* =========================
+ CARRINHO
+ ========================= */
+ /* Container do carrinho principal */
+ .cart {
+ background-color: white;
+ padding: 20px;
+ margin: 20px auto;
+ border-radius: var(--radius);
+ max-width: 500px; /* Centraliza com largura limitada */
+ }
+
+ /* Itens do carrinho */
+ #cart-list li {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 10px;
+ }
+
+
+ /* =========================
+ MINI CARRINHO
+ ========================= */
+ /* Ícone fixo no topo */
+ .mini-cart {
+ position: fixed;
+ top: 15px;
+ right: 20px;
+ background: white;
+ padding: 8px 12px;
+ border-radius: 20px;
+ cursor: pointer;
+ z-index: 2000;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+ }
+
+/* Contador de itens */
+#cart-count {
+background: red;
+color: white;
+border-radius: 50%;
+padding: 2px 6px;
+margin-left: 5px;
+}
+
+/* Dropdown do mini carrinho */
+ .mini-cart-dropdown {
+ display: none; /* Oculto inicialmente */
+ position: absolute;
+ top: 40px;
+ right: 0;
+ width: 220px;
+ background: white;
+ border-radius: var(--radius);
+ padding: 10px;
+ box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+ color: var(--text-color);
+ }
+
+ /* Mostra ao passar o mouse */
+ .mini-cart:hover .mini-cart-dropdown {
+ display: block;
+ }
+
+
+/* Lista interna */
+ .mini-cart-dropdown ul {
+ list-style: none;
+ padding: 0;
+ max-height: 150px;
+ overflow-y: auto; /* Scroll se necessário */
+ }
+
+
+ /* =========================
+ SOBRE
+ ========================= */
+ .about {
+ padding: 20px;
+ }
+/* =========================
+ CONTATO
+========================= */
+ /* Container principal */
+ .contact {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 20px;
+ padding: 20px;
+ }
+
+/* Cards do formulário e tarefas */
+.contact form,
+.todo {
+ background: white;
+ padding: 20px;
+ border-radius: var(--radius);
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+width: 100%;
+max-width: 400px;
+}
+
+/* FORMULÁRIO */
+.contact form {
+display: flex;
+flex-direction: column;
+ gap: 10px;
+}
+
+.contact input {
+padding: 10px;
+ border-radius: var(--radius);
+
+border: 1px solid #ccc;
+}
+
+.contact button {
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 10px;
+border-radius: var(--radius);
+cursor: pointer;
+}
+
+.contact button:hover {
+opacity: 0.8;
+}
+/* Container flexível */
+ .about-content {
+ display: flex;
+ flex-direction: column; /* Empilhado vertical */
+ gap: 20px;
+}
+
+/* Cards internos */
+ .promo-video,
+ .location {
+ background: white;
+padding: 20px;
+ border-radius: var(--radius);
+ text-align: center;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Textos centralizados */
+.about-title,
+.about-text {
+text-align: center;
+ }
+
+/* ==========================================================================
+   4. VITRINE DE PRODUTOS (CARROS)
+   ========================================================================== */
+.products {
+    max-width: 1200px;
+    margin: 0 auto padding;
+    padding: 0 20px 40px 20px;
+    
+    /* Mudamos para Grid: Cria um layout de duas colunas perfeito e responsivo */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+h2 {
+    grid-column: 1 / -1; /* Faz o título ocupar a largura total do Grid */
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-left: 5px solid #e50914; /* Detalhe lateral em vermelho */
+    padding-left: 15px;
+    margin-bottom: 20px;
+    color: #0b0c10;
+}
+
+/* Cards dos Carros */
+.products-card {
+    background-color: #ffffff;
+    border: none;
+    padding: 1000px; /* Deixamos 0 para a imagem colar no topo do card */
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajuste do conteúdo interno do card */
+.products-card-content {
+    padding: 20px;
+}
+
+/* Hover nos Cards (Efeito de levante e sombra) */
+.products-card:hover {
+    transform: translateY(-10px); /* O card "flutua" levemente */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagens dos Carros */
+.products-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Não distorce a imagem do carro */
+    margin: 0;
+}
+
+/* Preço ou Destaques do Carro */
+.products-card .price {
+    font-size: 1.4rem;
+    color: #e50914;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* LISTA DE TAREFAS */
+ .todo {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ text-align: center;
+ }
+
+ .todo input {
+ padding: 10px;
+ border-radius: var(--radius);
+ border: 1px solid #ccc;
+ }
+.todo button {
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 10px;
+border-radius: var(--radius);
+cursor: pointer;
+}
+
+/* Lista de tarefas */
+#lista-tarefas {
+list-style: none;
+padding: 0;
+}
+
+#lista-tarefas li {
+background: var(--secondary-color);
+padding: 8px;
+order-radius: var(--radius);
+}
+
+/* ==========================================================================
+   5. (FOOTER)
+   ========================================================================== */
+.footer {
+    background-color: #0b0c10;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    border-top: 3px solid #e50914;
+}
+
+/* ==========================================================================
+   SLIDER ANIMADO INFINITO
+   ========================================================================== */
+.slider-container {
+    width: 100%;
+    height: 600px; /* Altura do seu banner de carros */
+    overflow: hidden; /* Esconde as fotos que saem da tela */
+    position: relative;
+    background-color: #000;
+}
+
+/* A faixa que segura todas as fotos lado a lado */
+.slider-track {
+    display: flex;
+    width: calc(100% * 8); /* Baseado no número total de slides (originais + duplicados) */
+    height: 100%;
+    /* Associa a animação 'scroll' criada abaixo.
+       25s é o tempo total para dar uma volta completa. 
+       Ajuste para mais segundos se quiser que passe mais devagar.
+    */
+    animation: scroll 45s linear infinite; 
+}
+
+/* Cada slide individual */
+.slide {
+    width: 100vw; /* Cada slide ocupa exatamente a largura da tela do usuário */
+    height: 100%;
+    flex-shrink: 0;
+}
+
+/* Garante que as fotos fiquem perfeitas sem distorcer */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta a imagem perfeitamente mantendo a proporção */
+    filter: brightness(0.85); /* Deixa a foto levemente mais escura para dar um ar premium */
+}
+
+/* Pausa o slider se o cliente passar o mouse por cima (opcional, mas muito elegante) */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-400vw); /* -100vw multiplicado pela quantidade de imagens ÚNICAS (4) */
+    }
+}

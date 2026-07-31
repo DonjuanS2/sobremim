@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Webmotors Seminovos</title>
+    <link rel="stylesheet" href="style2.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos do Login (Mantidos os anteriores) */
+        .login-container {
+            max-width: 400px;
+            margin: 80px auto;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .login-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #0b0c10;
+        }
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        .btn-principal {
+            width: 100%;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        .btn-principal:hover {
+            background-color: #b80710;
+        }
+        .login-links {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .login-links a {
+            color: #e50914;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* NOVOS ESTILOS: Painel de Recuperação de Senha (Oculto por padrão) */
+        #painel-recuperacao {
+            display: none; /* Começa escondido */
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        #painel-recuperacao p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .mensagem-sucesso {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header" id="home">
+        <h1>WEBMOTORS</h1>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="cadastro.html">CADASTRAR</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-container">
+            <h2>Acesse sua Conta</h2>
+
+            <form id="form-login">
+                <label for="email-login">E-mail:</label>
+                <input type="email" id="email-login" required placeholder="Digite seu e-mail">
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" required placeholder="Digite sua senha">
+
+                <button type="submit" class="btn-principal">ENTRAR</button> 
+            </form>
+
+            <div class="login-links">
+                <p>Esqueceu a senha? <a onclick="mostrarRecuperacao()">Recuperar aqui</a></p>
+                <p>Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+            </div>
+
+            <div id="painel-recuperacao">
+                <h3>Recuperar Senha</h3>
+                <p>Digite o e-mail cadastrado e enviaremos um link de recuperação.</p>
+                
+                <form id="form-recuperacao" onsubmit="enviarEmailRecuperacao(event)">
+                    <input type="email" id="email-recuperacao" required placeholder="Seu e-mail cadastrado">
+                    <button type="submit" class="btn-principal" style="background-color: #0b0c10;">ENVIAR LINK</button>
+                </form>
+                
+                <div id="mensagem-enviado" class="mensagem-sucesso">
+                    ✅ Link de recuperação enviado! Verifique sua caixa de entrada.
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; copyright - WEBMOTORS Semi Novos Motors 2010.</p>
+    </footer>
+
+    <script>
+        // Função para mostrar o painel de recuperação e esconder a mensagem de sucesso caso já esteja aberta
+        function mostrarRecuperacao() {
+            const painel = document.getElementById('painel-recuperacao');
+            
+            // Alterna entre mostrar e esconder
+            if (painel.style.display === 'block') {
+                painel.style.display = 'none';
+            } else {
+                painel.style.display = 'block';
+                document.getElementById('mensagem-enviado').style.display = 'none';
+            }
+        }
+
+        // Função que simula o envio do e-mail
+        function enviarEmailRecuperacao(event) {
+            // Impede que a página recarregue ao enviar o formulário
+            event.preventDefault(); 
+            
+            const emailDigitado = document.getElementById('email-recuperacao').value;
+
+            // Aqui é onde, no futuro, você faria uma requisição (fetch/AJAX) para o seu Back-end.
+            // Exemplo de como seria a requisição real:
+            // fetch('https://sua-api.com/recuperar-senha', { method: 'POST', body: JSON.stringify({ email: emailDigitado }) })
+
+            // Como estamos no Front-end, vamos apenas simular o sucesso:
+            document.getElementById('mensagem-enviado').style.display = 'block';
+            
+            // Limpa o campo de e-mail após enviar
+            document.getElementById('email-recuperacao').value = '';
+            
+            // Log no console só para o desenvolvedor ver que funcionou
+            console.log(`Simulação: E-mail de recuperação "enviado" para ${emailDigitado}`);
+        }
+    </script>
+</body>
+</html>

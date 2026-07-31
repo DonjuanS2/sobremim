@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Webmotors Seminovos</title>
+    <link rel="stylesheet" href="style2.css"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos complementares específicos para o formulário */
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        .form-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-left: 5px solid #e50914;
+            padding-left: 15px;
+            color: #0b0c10;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: 600;
+            color: #e50914;
+            padding: 0 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        .radio-group, .checkbox-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label, .checkbox-group label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        button[type="submit"] {
+            width: 100%;
+            background-color: #e50914;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #b80710;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="header" id="home">
+        <h1>WEBMOTORS</h1>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contato" class="form-container">
+            <h2>Crie sua Conta</h2>
+
+            <form class="form-contact">
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required minlength="6" placeholder="Mínimo de 6 caracteres">
+
+                    <label for="telefone">Celular / WhatsApp:</label>
+                    <input type="text" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Perfil na Plataforma</legend>
+
+                    <p><strong>Qual o seu objetivo principal?</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="objetivo" value="comprar" required> Comprar Carro</label>
+                        <label><input type="radio" name="objetivo" value="vender"> Vender Carro</label>
+                        <label><input type="radio" name="objetivo" value="ambos"> Ambos</label>
+                    </div>
+
+                    <p><strong>Tipo de Conta:</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="tipo" value="pf" required> Pessoa Física</label>
+                        <label><input type="radio" name="tipo" value="pj"> Concessionária/Lojista</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="alertas" checked> Receber alertas de preços e novidades</label>
+                    </div>
+                </fieldset>
+
+                <button type="submit">FINALIZAR CADASTRO</button> 
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; copyright - WEBMOTORS Semi Novos Motors 2010.</p>
+    </footer>
+
+</body>
+</html>

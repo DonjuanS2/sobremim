@@ -5,48 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Gabriel | Full-Stack Developer</title>
     <link rel="stylesheet" href="style.css">
-
+    
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
+    <!-- Camada da foto de fundo -->
+    <div class="hobbies-bg" id="hobbiesBg"></div>
+
     <main class="container">
-      
-        <aside class="profile-card">
+        <!-- Sidebar de Perfil -->
+        <aside class="profile-card fade-up">
             <div class="avatar-container">
-              
-                <img src="foto1.png" alt="Foto de Juan Gabriel" class="profile-img">
+                <img src="j.png" alt="Foto de Juan Gabriel" class="profile-img">
             </div>
             
             <h1 class="name">Juan Gabriel</h1>
-            <p class="subtitle">Desenvolvedor Full-Stack em Formação</p>
+            <p class="subtitle">Desenvolvedor Full-Stack</p>
             
             <div class="divider"></div>
             
-           
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="ph ph-map-pin icon"></i>
+                    <span>Brasil</span>
+                </div>
+                <div class="contact-item">
+                    <i class="ph ph-buildings icon"></i>
+                    <span>Petrobras</span>
+                </div>
             </div>
         </aside>
 
-       
+        <!-- Conteúdo Principal -->
         <section class="content">
-          
-            <div class="card">
+            
+            <!-- Sobre Mim -->
+            <div class="card fade-up">
                 <span class="tag">Trajetória Profissional</span>
                 <h2>Sistemas de Refrigeração ao Código</h2>
-                <p>Desenvolvedor Full-Stack em formação pela <strong>Petrobras</strong>. Com um background técnico forte que começou aos 14 anos na manutenção de sistemas de refrigeração, desenvolvi desde cedo a habilidade de diagnosticar e resolver problemas complexos. Hoje, aos 22, aplico essa mesma lógica e disciplina no desenvolvimento de aplicações web, do front-end ao back-end.</p>
+                <p>Desenvolvedor Full-Stack em formação pela <strong>Petrobras</strong>. Com um background técnico forte que começou aos 14 anos na manutenção de sistemas de refrigeração, desenvolvi desde cedo a habilidade de diagnosticar e resolver problemas complexos.</p>
+                <p>Hoje, aos 22 anos, aplico essa mesma lógica e disciplina no desenvolvimento de aplicações web, criando soluções robustas do front-end ao back-end.</p>
             </div>
 
-            
-            <div class="card">
-                <span class="tag">Quem sou eu</span>
+            <!-- Hobbies -->
+            <div class="card fade-up delay-1">
+                <span class="tag">Além da Tela</span>
                 <h2>Inquietação técnica e equilíbrio</h2>
-                <p>Sempre fui movido pela curiosidade de entender como as coisas funcionam — seja desmontando computadores na bancada ou analisando a estrutura de uma música. Essa inquietação técnica me levou, aos 14 anos, para o setor de refrigeração, onde aprendi o valor da disciplina e da resolução prática de problemas.</p>
-                <p>Hoje, aos 22, canalizo essa mesma precisão para o desenvolvimento Full-Stack pela Petrobras. Fora do código, encontro equilíbrio nos treinos de ciclismo e nos treinos de musculação, na composição de estudo musical e na exploração do universo das fragrancias, como um verdadeiro entusiasta e apreciador da perfumaria. Sou um entusiasta da construção: seja de sistemas, de hábitos saudáveis ou de novas melodias.</p>
+                <p>Sou movido pela curiosidade de entender como as coisas funcionam. Fora do código, busco equilíbrio através das minhas paixões:</p>
+                
+                <div class="hobbies-grid">
+                    <div class="hobby-item" data-bg="ciclismo.jpg">
+                        <i class="ph ph-bicycle"></i>
+                        <span>Ciclismo</span>
+                    </div>
+                    
+                    <div class="hobby-item" data-bg="treino.jpg">
+                        <i class="ph ph-soccer-ball"></i>
+                        <span>Futebol</span>
+                    </div>
+                    
+                    <div class="hobby-item" data-bg="musica.jpg">
+                        <i class="ph ph-music-notes"></i>
+                        <span>Música</span>
+                    </div>
+                    
+                    <div class="hobby-item" data-bg="perfumaria.jpg">
+                        <i class="ph ph-drop"></i>
+                        <span>Perfumaria</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Portfólio -->
+            <div class="card fade-up delay-2">
+                <span class="tag">Meu Trabalho</span>
+                <h2>Portfólio</h2>
+                <div class="portfolio-grid">
+                    <a href="indexsite.html" target="_blank" class="portfolio-card">
+                        <div class="portfolio-icon">
+                            <i class="ph ph-code"></i>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Meu Primeiro Protótipo</h3>
+                            <p>Primeiro projeto web desenvolvido durante meus estudos iniciais.</p>
+                        </div>
+                        <i class="ph ph-arrow-up-right external-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formulário de Contato -->
+            <div class="card fade-up delay-3">
+                <span class="tag">Networking</span>
+                <h2>Entre em Contato comigo</h2>
+                <p>Tem alguma dúvida sobre meu trabalho? E quiser me contratar! Me mande uma mensagem.</p>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder="Seu Nome">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder="Seu E-mail">
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" rows="4" required placeholder="Sua Mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Enviar Mensagem <i class="ph ph-paper-plane-right"></i>
+                    </button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
+            </div>
+
         </section>
     </main>
 
+    <!-- Script de animações e efeitos -->
+    <script src="script.js"></script>
 </body>
 </html>
